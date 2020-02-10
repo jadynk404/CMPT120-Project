@@ -1,30 +1,29 @@
 # Name: Jadyn Kennedy
-# Date: 2/5/2020
-# Citations: Used the template provided on iLearn, and past labs for refrence (otherwise I worked alone)
+# Date: 2/10/2020
+# Citations: Used the template provided on iLearn, Emmanuel, and past labs for refrence (otherwise I worked alone)
 
-def main():
-    e = "Press enter to continue..."
-    g = "GPA:"
+
+
+def print1():
+    e = ("Press enter to continue...")
+    g = ("GPA:")
     name = input("Please enter your name: ")
-    year = input("Please enter what year you are (freshman/sophomore/junior/senior")
+    year = input("Please enter what year you are (freshman/sophomore/junior/senior): ")
+    
     
     print('Help the STEM major find her motivation!')
-
-               
     print()
     print("Welcome to", year," orienation", name, "! You begin your", year, " year, ready and eager to learn!")
     print(g, 4.0)
     input(e)
     print("... Two weeks later ...")
-    
-    
+
     print("Oh no! You can't seem to find your motivation to continue! Where should you look?")
     input(e)
     print("You look through all the drawers in your room, making a mess in the process. There's nothing here.",
           "You know you have a",
           "project due in your Programming class in an hour, but you decide to clean up your mess instead.")
 
-   
     print("You were late to class... with an incomplete project.")
     print(g, 3.5)
     input(e)
@@ -41,8 +40,6 @@ def main():
     print(g, 3.0)
     input(e)
 
-
-
     print("You start seeing assignments pile up in your peripheral vision as you watch netflix. You know you",
           "should start them, but your motivation has once again run out.")
     input("Press enter to look for some more!")
@@ -57,5 +54,13 @@ def main():
 
     print("You have won! Please play again!")
 
+    
+    
+def main():             
+    print1()
+    print("Citations: used template provided on iLearn, collaberated with Emmanuel, and used past labs for reference.")
+    
+
 
 main()
+
