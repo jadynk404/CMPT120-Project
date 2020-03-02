@@ -21,14 +21,10 @@ locales = ["You decide to head outside to look for some motivation. The fresh su
            "You get to work and finish all of them with time to spare!", "You head to Hancock to try to find some motivation. Struggling, you "\
            "decide to stop for a nice cup of coffee. As you drink it you remember that you have a Programming project due in an hour! You finish 3/4 "\
            "of it while you finish your coffee."]
+
 current = locales[0]
 
-
-
-
-
        
-
 import time
 import sys
 
@@ -53,31 +49,38 @@ def Intro():
     print(p4)
 
 def local1():
+    global current
     current = locales[0]
     print(current)
     print(g, gpa)
     print(e)
+    
 def local2():
+    global current
     current = locales[1]
     print(current)
     print(g, gpa)
     print(e)
 def local3():
+    global current
     current = locales[2]
     print(current)
     print(g, gpa-1.0)
     print(e)
 def local4():
+    global current
     current = locales[3]
     print(current)
     print(g, gpa-.5)
     print(e)
 def local5():
+    global current
     current = locales[4]
     print(current)
     print(g, gpa)
     print(e)
 def local6():
+    global current
     current = locales[5]
     print(current)
     print(g, gpa-.15)
@@ -106,57 +109,61 @@ def loop():
                 x=1
                 if choice[0] == "n":
                     x = 1
-                    local3()
-                elif choice[0] == "e":
-                    x=1
-                    local2()
-                elif choice[0] == "w":
-                    x=1
-                    local1()
-                if choice[0] == "s": 
-                    x=1
-                    print(invalid)
-            elif current == locales[1]:
-                if choice[0] == "n":
-                    x = 1
                     local4()
                 elif choice[0] == "e":
                     x=1
-                    print(invalid)
+                    local1()
                 elif choice[0] == "w":
                     x=1
-                    local0()
-                if choice[0] == "s": 
+                    local3()
+                elif choice[0] == "s": 
                     x=1
                     print(invalid)
-            elif current == locales[2]:
-                x=1
+                    
+            elif current == locales[1]:
                 if choice[0] == "n":
                     x = 1
                     local5()
                 elif choice[0] == "e":
                     x=1
-                    local1()
+                    print(invalid)
                 elif choice[0] == "w":
                     x=1
-                    print(invalid)
-                if choice[0] == "s": 
+                    local1()
+                elif choice[0] == "s": 
                     x=1
                     print(invalid)
-            elif current == locales[3]:
+                    
+            elif current == locales[2]:
                 x=1
                 if choice[0] == "n":
                     x = 1
                     local6()
                 elif choice[0] == "e":
                     x=1
-                    local4()
+                    local1()
                 elif choice[0] == "w":
                     x=1
                     print(invalid)
-                if choice[0] == "s": 
+                elif choice[0] == "s": 
                     x=1
-                    local0()
+                    print(invalid)
+                    
+            elif current == locales[3]:
+                x=1
+                if choice[0] == "n":
+                    x = 1
+                    print(invalid)
+                elif choice[0] == "e":
+                    x=1
+                    local5()
+                elif choice[0] == "w":
+                    x=1
+                    local6()
+                elif choice[0] == "s": 
+                    x=1
+                    local1()
+                    
             elif current == locales[4]:
                 x=1
                 if choice[0] == "n":
@@ -167,10 +174,11 @@ def loop():
                     print(invalid)
                 elif choice[0] == "w":
                     x=1
-                    local3()
-                if choice[0] == "s": 
+                    local4()
+                elif choice[0] == "s": 
                     x=1
-                    local1()
+                    local2()
+                    
             elif current == locales[5]:
                 x=1
                 if choice[0] == "n":
@@ -178,13 +186,13 @@ def loop():
                     print(invalid)
                 elif choice[0] == "e":
                     x=1
-                    print(invalid)
+                    local4()
                 elif choice[0] == "w":
                     x=1
-                    local6()
-                if choice[0] == "s": 
+                    print(invalid)
+                elif choice[0] == "s": 
                     x=1
-                    local2()
+                    local3()
                     
                   
         else:
