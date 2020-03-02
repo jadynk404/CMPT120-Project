@@ -1,239 +1,208 @@
 # Name: Jadyn Kennedy
 # Date: 2/10/2020
+# Citations: Worked with Emmanuel Batista for Project 1, this time I worked alone. 
 
 
 e = ("Press enter to continue...")
 g = ("GPA:")
+gpa = float(4.0)
 name = input("Please enter your name: ")
 year = input("Please enter what year you are (freshman/sophomore/junior/senior): ")
 invalid = "I'm sorry. That is not a valid command."
 
 
+locales = ["You decide to head outside to look for some motivation. The fresh summer air hits you and you realize today is going to be a good day."\
+           "You do all of your homework outside and get all your assignments done.", "You decide to head to the library to look. All of the studious people"\
+           "surrounding you seemed to spark some motivation. Not only did you finish all of todays work,"
+           " but everything for the next week too! Congratulations!", "You decide to look for some motivation under your bed, but you found"\
+           "some extra pillows and blankets that you have stored instead. You decide to look for your motivation later and take a nap instead, ignoring your"\
+           "assignments.", "You try looking for some motivation at the gym. Luckily you found some but you spent all of it working out instead of doing your work!",\
+           "You try looking for your motivation in your room. Congratulations! You find some hiding under the giant pile of assignments you have due!"\
+           "You get to work and finish all of them with time to spare!", "You head to Hancock to try to find some motivation. Struggling, you "\
+           "decide to stop for a nice cup of coffee. As you drink it you remember that you have a Programming project due in an hour! You finish 3/4 "\
+           "of it while you finish your coffee."]
+current = locales[0]
+
+
+
+
+
+       
+
 import time
 import sys
 
-
-
-             
-def someFunc(function):   #added parameter          
+def main(function):   #added parameter          
     function()
 
 def copyright(variable):
     print(variable)
+def Intro():
+    p1 = 'Help the STEM major find her motivation!'
+    Quit = "(Press quit at any time to exit the game.)"
+    p2 = "Welcome to {} orientation, {}! You begin your {} year, ready and eager to learn!".format(year, name, year) #This fixes the formatting of text
+    p3 = "... Two weeks later ..."
+    p4 = "Oh no! You can't seem to find your motivation to continue!"
+    print(p1)
+    print(Quit)
+    print() # print blank space
+    time.sleep(1)
+
+    print(p2)
+    print(p3)
+    print(p4)
+
+def local1():
+    current = locales[0]
+    print(current)
+    print(g, gpa)
+    print(e)
+def local2():
+    current = locales[1]
+    print(current)
+    print(g, gpa)
+    print(e)
+def local3():
+    current = locales[2]
+    print(current)
+    print(g, gpa-1.0)
+    print(e)
+def local4():
+    current = locales[3]
+    print(current)
+    print(g, gpa-.5)
+    print(e)
+def local5():
+    current = locales[4]
+    print(current)
+    print(g, gpa)
+    print(e)
+def local6():
+    current = locales[5]
+    print(current)
+    print(g, gpa-.15)
+    print(e)
+
+def loop():
+    x = 1
+    while x ==1:
+        prompt = "Where would you like to look?\n"
+        choice = input(prompt)
+        invalid = "That is not a valid command. Enter 'help' for help"
+        Help = "Please suggest either north, south, east, west, or quit.\n"
+        north = "You go north."
+        south = "You go south."
+        east = "You go east."
+        west = "You go west."
+        if choice[0] == "h":
+           x = 1
+           print(Help)
+        elif choice[0] == "q":
+           x = 0
+           Quit()
+        elif choice[0] == "n" or choice[0] == "s" or choice[0] == "e" or choice[0] == "w":
+            x = 1
+            if current == locales[0]:
+                x=1
+                if choice[0] == "n":
+                    x = 1
+                    local3()
+                elif choice[0] == "e":
+                    x=1
+                    local2()
+                elif choice[0] == "w":
+                    x=1
+                    local1()
+                if choice[0] == "s": 
+                    x=1
+                    print(invalid)
+            elif current == locales[1]:
+                if choice[0] == "n":
+                    x = 1
+                    local4()
+                elif choice[0] == "e":
+                    x=1
+                    print(invalid)
+                elif choice[0] == "w":
+                    x=1
+                    local0()
+                if choice[0] == "s": 
+                    x=1
+                    print(invalid)
+            elif current == locales[2]:
+                x=1
+                if choice[0] == "n":
+                    x = 1
+                    local5()
+                elif choice[0] == "e":
+                    x=1
+                    local1()
+                elif choice[0] == "w":
+                    x=1
+                    print(invalid)
+                if choice[0] == "s": 
+                    x=1
+                    print(invalid)
+            elif current == locales[3]:
+                x=1
+                if choice[0] == "n":
+                    x = 1
+                    local6()
+                elif choice[0] == "e":
+                    x=1
+                    local4()
+                elif choice[0] == "w":
+                    x=1
+                    print(invalid)
+                if choice[0] == "s": 
+                    x=1
+                    local0()
+            elif current == locales[4]:
+                x=1
+                if choice[0] == "n":
+                    x = 1
+                    print(invalid)
+                elif choice[0] == "e":
+                    x=1
+                    print(invalid)
+                elif choice[0] == "w":
+                    x=1
+                    local3()
+                if choice[0] == "s": 
+                    x=1
+                    local1()
+            elif current == locales[5]:
+                x=1
+                if choice[0] == "n":
+                    x = 1
+                    print(invalid)
+                elif choice[0] == "e":
+                    x=1
+                    print(invalid)
+                elif choice[0] == "w":
+                    x=1
+                    local6()
+                if choice[0] == "s": 
+                    x=1
+                    local2()
+                    
+                  
+        else:
+            x=1
+            print(invalid)
+           
 
 
 def Quit():
     print("ok. goodbye")
-    sys.exit()
-    
-def loop():
-    x = 1
-    while x == 1:
-        prompt = "Where would you like to go from here?\n"
-        choice = input(prompt)
-        invalid = "That is not a valid command. Enter 'help' for help"
-        Help = "Please suggest either north, south, east, west, or quit.\n"
-        north = "you go north"
-        south = "you go south"
-        east = "you go east"
-        west = "you go east"
-        
-        
-        
-
-        choice = choice.lower()
-        if choice[0] == "n":
-            x = 0
-            print(north)
-
-        elif choice[0] == "s":
-            x = 0
-            print(south)
-        elif choice[0] == "e":
-            x = 0
-            print(east)
-
-        elif choice[0] == "w":
-            x = 0
-            print(west)
-        elif choice[0] == "h":
-            x = 1
-            print(Help)
-        elif choice [0] == "q":
-            Quit()
-        else:
-            x = 1
-            print(invalid)
-            
-
-    
-    return loop
-
-
-
-def Intro():
-    p1 = 'Help the STEM major find her motivation!'
-
-    print(p1)
-    print() # print blank space
-    time.sleep(1)
-
-    
-    p2 = "Welcome to {} orientation, {}! You begin your {} year, ready and eager to learn!".format(year, name, year) #This fixes the formatting of text
-    p3 = "... Two weeks later ..."
-
     
 
-    
-    print()
-    print(p2)
-    print(g, 4.0)
-    input(e)
-    print(p3)
-
-def printsub1():
-    p4sub1 = "Oh no! You can't seem to find your motivation to continue!"
-    print(p4sub1)
-
-def print1():
-    x = 1
-    while x==1:
-        
-        p4 = "Where should you look: through your drawers or in the closet?\n"
-        p51 ="You look through all the drawers in your room, making a mess in the process. There's nothing here." 
-        p52 = "Your scavenge through your closet, throwing all of your clothes onto the floor. There's nothing here." 
-        suggest1 = "Please suggest either drawers or closet.\n"
-        choice1 =input(p4)
-
-        choice1 = choice1.lower()
-
-        if choice1[0] == "d":
-            x = 0
-            print(p51)
-        elif choice1[0] == "c":
-            x = 0
-            print(p52)
-
-            
-        else:
-            print(invalid)
-            tryagain = input(suggest1)
-            tryagain = tryagain.lower() #allows reader to input capital or lower case answers
-            if tryagain[0] == "d":
-                x = 0
-                print(p51)
-            elif tryagain[0] == "c":
-                x = 0
-                print(p52)
-            else:
-                x=1
-                
-            
-    
-        input(e)
-
-def printincomplete():
-    p6 = "You were late to class... with an incomplete project."
-   
-
-    print(p6)
-    print(g, 3.5)
-    input(e)
-
-
-def printwork():
-    work = "You made it to class with a half finished project." 
-
-    print(p6)
-    print(g, 3.7)
-    input(e)
-
-    
-def print2():
-    x = 1
-    while x==1:
-        project = "You have your Computer Programming game due in an hour and you haven't started it yet but your roommate has already yelled at you twice this week to clean the room. Do you try to work on it or clean up the mess you made before your roommate gets home?\n"
-        suggest2 = "Please suggest either clean or work.\n"
-        choice2 = input(project)
-
-        choice2 = choice2.lower()
-        if choice2[0] == "c":
-            x = 0
-            printincomplete()
-
-        elif choice2[0] == "w":
-            x = 0
-            printwork()
-
-        
-        else:
-            x = 1
-            
-            tryagain = input(suggest2)
-            tryagain = tryagain.lower()
-            if tryagain[0] == "w":
-                x = 0
-                print(printwork)
-            elif tryagain[0] == "c":
-                x = 0
-                print(printincomplete)
-            else:
-                x = 1
-            
-
-
-
-def print3():
-
-    p8 = "You feel relieved to see your grades back up and decide to give yourself a nice break as a reward so you decide to skip your classes for the next day."
-    p9 = "You start seeing assignments pile up in your peripheral vision as you watch netflix. You know you should start them, but your motivation has once again run out."
-    
-
-    print(p8)
-    print(g, 3.0)
-    input(e)
-
-    print(p9)
-    loop()
-
-def print4():
-    p11 = "As you look start searching, you come across an email saying: '{}, Don't forget to keep your grades up so you don't lose your full ride scholarship.'\n".format(name)
-    p12 = "Congratulations! That should be enough motivation to last you until you graduate!"
-    p13 = "You complete all of your assignments and finish the semester strong."
-
-    print(p11)
-    print(p12)
-    input(e)
-
-def print5():
-    print(p13)
-    print(g, 4.0)
-
-def print5():
-    p14 = "You have won! Please play again!"
-
-    print(p14)
-
-    
 def main():
-
-        someFunc(Intro)
-        someFunc(printsub1) 
-        someFunc(print1)
-        someFunc(print2)
-        someFunc(print3)
-        someFunc(print4)
-        someFunc(print5)
-
-#To do: Add two more locals, create choices for each local, change the GPA depending on which route taken
-
-
+    c = "This game was created by Jadyn Kennedy 2/10/2020" # copyright
+    Intro()
+    loop()
+    copyright(c)
     
+
 
 main()
-    
-    
-
-
-
-
