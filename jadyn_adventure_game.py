@@ -1,8 +1,8 @@
 # Name: Jadyn Kennedy
-# Date: 2/10/2020
-# Citations: Worked with Emmanuel Batista for Project 1, this time I worked alone. 
+# Date: 3/3/2020
+# Citations: Worked with Emmanuel Batista (helped me with the "global current" and understanding that functionality), otherwise I worked alone
 
-
+#global variables:
 e = ("Press enter to continue...")
 g = ("GPA:")
 gpa = float(4.0)
@@ -10,19 +10,19 @@ name = input("Please enter your name: ")
 year = input("Please enter what year you are (freshman/sophomore/junior/senior): ")
 invalid = "I'm sorry. That is not a valid command."
 
-
-locales = ["You decide to head outside to look for some motivation. The fresh summer air hits you and you realize today is going to be a good day."\
+#global list:
+locales = ["You decide to head outside to look for some motivation. The fresh summer air hits you and you realize today is going to be a good day. "\
            "You do all of your homework outside and get all your assignments done.", "You decide to head to the library to look. All of the studious people"\
-           "surrounding you seemed to spark some motivation. Not only did you finish all of todays work,"
+           " surrounding you seemed to spark some motivation. Not only did you finish all of todays work,"
            " but everything for the next week too! Congratulations!", "You decide to look for some motivation under your bed, but you found"\
-           "some extra pillows and blankets that you have stored instead. You decide to look for your motivation later and take a nap instead, ignoring your"\
-           "assignments.", "You try looking for some motivation at the gym. Luckily you found some but you spent all of it working out instead of doing your work!",\
+           " some extra pillows and blankets that you have stored instead. You decide to look for your motivation later and take a nap instead, ignoring your"\
+           " assignments.", "You try looking for some motivation at the gym. Luckily you found some but you spent all of it working out instead of doing your work!",\
            "You try looking for your motivation in your room. Congratulations! You find some hiding under the giant pile of assignments you have due!"\
-           "You get to work and finish all of them with time to spare!", "You head to Hancock to try to find some motivation. Struggling, you "\
+           " You get to work and finish all of them with time to spare!", "You head to Hancock to try to find some motivation. Struggling, you "\
            "decide to stop for a nice cup of coffee. As you drink it you remember that you have a Programming project due in an hour! You finish 3/4 "\
            "of it while you finish your coffee."]
 
-current = locales[0]
+current = locales[0] #global variable for location (will update in each locale)
 
        
 import time
@@ -42,14 +42,16 @@ def Intro():
     print(p1)
     print(Quit)
     print() # print blank space
-    time.sleep(1)
+    time.sleep(1) #pauses before printing next line of text
 
     print(p2)
     print(p3)
     print(p4)
 
 def local1():
-    global current
+    global current #this will update the players current location
+    global gpa #this will update the players current gpa
+    gpa = gpa+0.15
     current = locales[0]
     print(current)
     print(g, gpa)
@@ -57,33 +59,43 @@ def local1():
     
 def local2():
     global current
+    global gpa
+    gpa = gpa+.5
     current = locales[1]
     print(current)
     print(g, gpa)
     print(e)
 def local3():
     global current
+    global gpa
+    gpa = gpa-1.0
     current = locales[2]
     print(current)
-    print(g, gpa-1.0)
+    print(g, gpa)
     print(e)
 def local4():
     global current
+    global gpa
+    gpa = gpa-.5
     current = locales[3]
     print(current)
-    print(g, gpa-.5)
+    print(g, gpa)
     print(e)
 def local5():
     global current
+    global gpa
+    gpa = gpa
     current = locales[4]
     print(current)
     print(g, gpa)
     print(e)
 def local6():
     global current
+    global gpa
+    gpa = gpa-.15
     current = locales[5]
     print(current)
-    print(g, gpa-.15)
+    print(g, gpa)
     print(e)
 
 def loop():
@@ -97,112 +109,90 @@ def loop():
         south = "You go south."
         east = "You go east."
         west = "You go west."
-        if choice[0] == "h":
+        if choice[0] == "h": #runs help
            x = 1
            print(Help)
-        elif choice[0] == "q":
+        elif choice[0] == "q": #runs quit
            x = 0
            Quit()
-        elif choice[0] == "n" or choice[0] == "s" or choice[0] == "e" or choice[0] == "w":
+        elif choice[0] == "n" or choice[0] == "s" or choice[0] == "e" or choice[0] == "w": #if the player chooses a direction
             x = 1
             if current == locales[0]:
                 x=1
                 if choice[0] == "n":
-                    x = 1
                     local4()
                 elif choice[0] == "e":
-                    x=1
-                    local1()
+                    local2()
                 elif choice[0] == "w":
-                    x=1
                     local3()
                 elif choice[0] == "s": 
-                    x=1
                     print(invalid)
                     
             elif current == locales[1]:
                 if choice[0] == "n":
-                    x = 1
                     local5()
                 elif choice[0] == "e":
-                    x=1
                     print(invalid)
                 elif choice[0] == "w":
-                    x=1
                     local1()
-                elif choice[0] == "s": 
-                    x=1
+                elif choice[0] == "s":
                     print(invalid)
                     
             elif current == locales[2]:
                 x=1
                 if choice[0] == "n":
-                    x = 1
                     local6()
                 elif choice[0] == "e":
-                    x=1
                     local1()
                 elif choice[0] == "w":
-                    x=1
                     print(invalid)
-                elif choice[0] == "s": 
-                    x=1
+                elif choice[0] == "s":
                     print(invalid)
                     
             elif current == locales[3]:
                 x=1
                 if choice[0] == "n":
-                    x = 1
                     print(invalid)
                 elif choice[0] == "e":
-                    x=1
                     local5()
                 elif choice[0] == "w":
-                    x=1
                     local6()
                 elif choice[0] == "s": 
-                    x=1
                     local1()
                     
             elif current == locales[4]:
                 x=1
                 if choice[0] == "n":
-                    x = 1
                     print(invalid)
                 elif choice[0] == "e":
-                    x=1
                     print(invalid)
                 elif choice[0] == "w":
-                    x=1
                     local4()
                 elif choice[0] == "s": 
-                    x=1
                     local2()
                     
             elif current == locales[5]:
                 x=1
                 if choice[0] == "n":
-                    x = 1
                     print(invalid)
                 elif choice[0] == "e":
-                    x=1
                     local4()
                 elif choice[0] == "w":
-                    x=1
                     print(invalid)
                 elif choice[0] == "s": 
-                    x=1
                     local3()
                     
                   
-        else:
+        else: #prints invalid if the player gives invalid input
             x=1
             print(invalid)
            
 
 
 def Quit():
-    print("ok. goodbye")
+    global gpa
+    final = "As you wrap up the year, your final GPA is {}. Have a great summer!".format(gpa)
+    print(final)
     
 
 def main():
