@@ -22,7 +22,11 @@ locales = ["You decide to head outside to look for some motivation. The fresh su
            "decide to stop for a nice cup of coffee. As you drink it you remember that you have a Programming project due in an hour! You finish 3/4 "\
            "of it while you finish your coffee."]
 
+#new global list:
+locNames = ["Outside", "The Library", "Under the Bed", "The Gym", "Your room", "Hancock"] 
+
 current = locales[0] #global variable for location (will update in each locale)
+clocName = locNames[0]
 
        
 import time
@@ -30,7 +34,6 @@ import sys
 
 def main(function):   #added parameter          
     function()
-
 def copyright(variable):
     print(variable)
 def Intro():
@@ -48,55 +51,83 @@ def Intro():
     print(p3)
     print(p4)
 
+
+    
+
 def local1():
+    global clocName
     global current #this will update the players current location
     global gpa #this will update the players current gpa
+    clocName = locNames[0]
     gpa = gpa+0.15
     current = locales[0]
-    print(current)
+    print(clocName)
     print(g, gpa)
-    print(e)
+    time.sleep(1)
+    print(current)
+    input(e)
     
 def local2():
+    global clocName
     global current
     global gpa
+    clocName = locNames[1]
     gpa = gpa+.5
     current = locales[1]
-    print(current)
+    print(clocName)
     print(g, gpa)
-    print(e)
+    time.sleep(1)
+    print(current)
+    input(e)
 def local3():
+    global clocName
     global current
     global gpa
-    gpa = gpa-1.0
+    clocName = locNames[2]
+    gpa = gpa+.5
     current = locales[2]
-    print(current)
+    print(clocName)
     print(g, gpa)
-    print(e)
+    time.sleep(1)
+    print(current)
+    input(e)
+   
 def local4():
+    global clocName
     global current
     global gpa
-    gpa = gpa-.5
+    clocName = locNames[3]
+    gpa = gpa+.5
     current = locales[3]
-    print(current)
+    print(clocName)
     print(g, gpa)
-    print(e)
+    time.sleep(1)
+    print(current)
+    input(e)
 def local5():
+    global clocName
     global current
     global gpa
-    gpa = gpa
+    clocName = locNames[4]
+    gpa = gpa+.5
     current = locales[4]
-    print(current)
+    print(clocName)
     print(g, gpa)
-    print(e)
+    time.sleep(1)
+    print(current)
+    input(e)
 def local6():
+    global clocName
     global current
     global gpa
-    gpa = gpa-.15
+    clocName = locNames[5]
+    gpa = gpa+.5
     current = locales[5]
-    print(current)
+    print(clocName)
     print(g, gpa)
-    print(e)
+    time.sleep(1)
+    print(current)
+    input(e)
 
 def loop():
     x = 1
