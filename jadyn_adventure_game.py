@@ -23,10 +23,13 @@ locales = ["You decide to head outside to look for some motivation. The fresh su
            "of it while you finish your coffee."]
 
 #new global list:
-locNames = ["Outside", "The Library", "Under the Bed", "The Gym", "Your room", "Hancock"] 
+locNames = ["Outside", "The Library", "Under the Bed", "The Gym", "Your room", "Hancock"]
+
+#tracking where the player has been:
+hasBeen = [False, False, False, False, False, False] 
 
 current = locales[0] #global variable for location (will update in each locale)
-clocName = locNames[0]
+clocName = locNames[0] 
 
        
 import time
@@ -58,76 +61,115 @@ def local1():
     global clocName
     global current #this will update the players current location
     global gpa #this will update the players current gpa
+    global hasBeen
+    if hasBeen[0] == False:
+        gpa = gpa+0.15
+    else:
+        gpa = gpa
     clocName = locNames[0]
-    gpa = gpa+0.15
     current = locales[0]
     print(clocName)
     print(g, gpa)
     time.sleep(1)
     print(current)
     input(e)
+    hasBeen[0] = True #will not change the players gpa if they've already visited the function
+    return hasBeen[0]
     
 def local2():
     global clocName
     global current
     global gpa
+    global hasBeen
+    if hasBeen[1] == False:
+        gpa = gpa+0.5
+    else:
+        gpa = gpa
     clocName = locNames[1]
-    gpa = gpa+.5
     current = locales[1]
     print(clocName)
     print(g, gpa)
     time.sleep(1)
     print(current)
     input(e)
+    hasBeen[1] = True
+    return hasBeen[1]
+
 def local3():
     global clocName
     global current
     global gpa
+    global hasBeen
+    if hasBeen[2] == False:
+        gpa = gpa+1.0
+    else:
+        gpa = gpa
     clocName = locNames[2]
-    gpa = gpa+.5
     current = locales[2]
     print(clocName)
     print(g, gpa)
     time.sleep(1)
     print(current)
     input(e)
+    hasBeen[2] = True
+    return hasBeen[2]
    
 def local4():
     global clocName
     global current
     global gpa
+    global hasBeen
+    if hasBeen[3] == False:
+        gpa = gpa-0.5
+    else:
+        gpa = gpa
     clocName = locNames[3]
-    gpa = gpa+.5
     current = locales[3]
     print(clocName)
     print(g, gpa)
     time.sleep(1)
     print(current)
     input(e)
+    hasBeen[3] = True
+    return hasBeen[3]
+
 def local5():
     global clocName
     global current
     global gpa
+    global hasBeen
+    if hasBeen[4] == False:
+        gpa = gpa+.25
+    else:
+        gpa = gpa
     clocName = locNames[4]
-    gpa = gpa+.5
     current = locales[4]
     print(clocName)
     print(g, gpa)
     time.sleep(1)
     print(current)
     input(e)
+    hasBeen[4] = True
+    return hasBeen[4]
+
 def local6():
     global clocName
     global current
     global gpa
+    global hasBeen
+    if hasBeen[5] == False:
+        gpa = gpa-0.15
+    else:
+        gpa = gpa
     clocName = locNames[5]
-    gpa = gpa+.5
     current = locales[5]
     print(clocName)
     print(g, gpa)
     time.sleep(1)
     print(current)
     input(e)
+    hasBeen[5] = True
+    return hasBeen[5]
 
 def loop():
     x = 1
