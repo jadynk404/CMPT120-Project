@@ -1,6 +1,6 @@
 # Name: Jadyn Kennedy
-# Date: 3/3/2020
-# Citations: Worked with Emmanuel Batista (helped me with the "global current" and understanding that functionality), otherwise I worked alone
+# Date: 4/4/2020
+# Citations: I worked alone
 
 #global variables:
 e = ("Press enter to continue...")
@@ -9,6 +9,11 @@ gpa = float(4.0)
 name = input("Please enter your name: ")
 year = input("Please enter what year you are (freshman/sophomore/junior/senior): ")
 invalid = "I'm sorry. That is not a valid command."
+moves = "Moves left: "
+
+#trackers players number of moves:
+y=0
+
 
 #global list:
 locales = ["You decide to head outside to look for some motivation. The fresh summer air hits you and you realize today is going to be a good day. "\
@@ -23,7 +28,7 @@ locales = ["You decide to head outside to look for some motivation. The fresh su
            "of it while you finish your coffee."]
 
 #new global list:
-locNames = ["Outside", "The Library", "Under the Bed", "The Gym", "Your room", "Hancock"]
+locNames = ["Outside", "The Library", "Under the Bed", "The Gym", "Your Room", "Hancock"]
 
 #tracking where the player has been:
 hasBeen = [False, False, False, False, False, False] 
@@ -53,6 +58,8 @@ def Intro():
     print(p2)
     print(p3)
     print(p4)
+    print(moves, 7)
+    print("\n")
 
 
     
@@ -62,6 +69,7 @@ def local1():
     global current #this will update the players current location
     global gpa #this will update the players current gpa
     global hasBeen
+    global y
     if hasBeen[0] == False:
         gpa = gpa+0.15
     else:
@@ -69,18 +77,21 @@ def local1():
     clocName = locNames[0]
     current = locales[0]
     print(clocName)
+    print(moves, 6-y)
     print(g, gpa)
     time.sleep(1)
     print(current)
     input(e)
     hasBeen[0] = True #will not change the players gpa if they've already visited the function
-    return hasBeen[0]
+    y = y+1
+    return hasBeen[0], y
     
 def local2():
     global clocName
     global current
     global gpa
     global hasBeen
+    global y
     if hasBeen[1] == False:
         gpa = gpa+0.5
     else:
@@ -88,37 +99,43 @@ def local2():
     clocName = locNames[1]
     current = locales[1]
     print(clocName)
+    print(moves, 6-y)
     print(g, gpa)
     time.sleep(1)
     print(current)
     input(e)
     hasBeen[1] = True
-    return hasBeen[1]
+    y = y+1
+    return hasBeen[1], y
 
 def local3():
     global clocName
     global current
     global gpa
     global hasBeen
+    global y
     if hasBeen[2] == False:
-        gpa = gpa+1.0
+        gpa = gpa-1.0
     else:
         gpa = gpa
     clocName = locNames[2]
     current = locales[2]
     print(clocName)
+    print(moves, 6-y)
     print(g, gpa)
     time.sleep(1)
     print(current)
     input(e)
     hasBeen[2] = True
-    return hasBeen[2]
+    y = y+1
+    return hasBeen[2], y
    
 def local4():
     global clocName
     global current
     global gpa
     global hasBeen
+    global y
     if hasBeen[3] == False:
         gpa = gpa-0.5
     else:
@@ -126,18 +143,21 @@ def local4():
     clocName = locNames[3]
     current = locales[3]
     print(clocName)
+    print(moves, 6-y)
     print(g, gpa)
     time.sleep(1)
     print(current)
     input(e)
     hasBeen[3] = True
-    return hasBeen[3]
+    y = y+1
+    return hasBeen[3], y
 
 def local5():
     global clocName
     global current
     global gpa
     global hasBeen
+    global y
     if hasBeen[4] == False:
         gpa = gpa+.25
     else:
@@ -145,18 +165,21 @@ def local5():
     clocName = locNames[4]
     current = locales[4]
     print(clocName)
+    print(moves, 6-y)
     print(g, gpa)
     time.sleep(1)
     print(current)
     input(e)
     hasBeen[4] = True
-    return hasBeen[4]
+    y = y+1
+    return hasBeen[4], y
 
 def local6():
     global clocName
     global current
     global gpa
     global hasBeen
+    global y
     if hasBeen[5] == False:
         gpa = gpa-0.15
     else:
@@ -164,14 +187,17 @@ def local6():
     clocName = locNames[5]
     current = locales[5]
     print(clocName)
+    print(moves, 6-y)
     print(g, gpa)
     time.sleep(1)
     print(current)
     input(e)
     hasBeen[5] = True
-    return hasBeen[5]
+    y = y+1
+    return hasBeen[5], y
 
 def loop():
+    global y
     x = 1
     while x ==1:
         prompt = "Where would you like to look?\n"
@@ -259,9 +285,13 @@ def loop():
         else: #prints invalid if the player gives invalid input
             x=1
             print(invalid)
-           
+        if y == 7:
+            x = 0
+            Quit()
 
 
+        
+        
 def Quit():
     global gpa
     final = "As you wrap up the year, your final GPA is {}. Have a great summer!".format(gpa)
