@@ -1,3 +1,5 @@
+#Worked with Emmanuel Batista
+
 def main():
     import sys
     title = "Interactive Dictionary"
@@ -34,6 +36,9 @@ def main():
             print(invalid)
             x = 1
 
+    def copyrightt():
+        c = "This file was created by Jadyn Kennedy 4/27/2020"
 
 main()
+copyrightt()
  
